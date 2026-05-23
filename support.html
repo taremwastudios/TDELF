@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - TDELF</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="icon.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="icon.png">
+    <script src="router.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo"><img src="tdelf.png" alt="TDELF Logo"></div>
+            <nav>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/support">Support</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/e-tdelf">e-TDELF</a></li>
+                    <li><a href="/meet">Meet</a></li>
+                    <li><a href="/learn">Learn</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/settings">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <h1>Support & FAQ</h1>
+            <p>We're here to help! Find answers to common questions or submit a support ticket</p>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <details class="faq-item">
+                    <summary class="faq-question">What is TDELF?</summary>
+                    <div class="faq-answer">
+                        <p>TDELF is a premier platform for debate, discussion, and intellectual exchange. We facilitate meaningful conversations and structured debates on important topics.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">How do I participate in debates?</summary>
+                    <div class="faq-answer">
+                        <p>You can join debates through our e-TDELF platform. Navigate to the e-TDELF section and select an ongoing debate to participate.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">How can I contact TDELF?</summary>
+                    <div class="faq-answer">
+                        <p>You can reach us by filling out the support form below, or contact our team directly via email or phone. We'll respond to your inquiry within 24-48 hours.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">What should I do if I encounter technical issues?</summary>
+                    <div class="faq-answer">
+                        <p>Please clear your browser cache and try again. If the issue persists, submit a support ticket below with details about the problem you're experiencing.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">Is there a membership fee?</summary>
+                    <div class="faq-answer">
+                        <p>TDELF offers both free and premium membership options. Check our Products page for details on available plans.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-section">
+            <h2>Submit a Support Ticket</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: #7f8c8d;">Have a question or issue? Fill out the form below and we'll get back to you as soon as possible.</p>
+            
+            <div class="form-container">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="supportName">Full Name *</label>
+                        <input type="text" id="supportName" name="name" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="supportEmail">Email Address *</label>
+                        <input type="email" id="supportEmail" name="email" required placeholder="Enter your email address">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="supportPhone">Phone Number *</label>
+                        <input type="tel" id="supportPhone" name="phone" required placeholder="Enter your phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="supportMessage">Message *</label>
+                        <textarea id="supportMessage" name="message" rows="6" required placeholder="Describe your issue or inquiry in detail"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Ticket</button>
+                </form>
+
+                <div id="ticketConfirmation"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="support-system.js"></script>
+</body>
+</html>

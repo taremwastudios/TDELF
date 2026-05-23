@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - TDELF</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="icon.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="icon.png">
+    <script src="router.js"></script>
+    <script src="settings.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo"><img src="tdelf.png" alt="TDELF Logo"></div>
+            <nav>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/support">Support</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/e-tdelf">e-TDELF</a></li>
+                    <li><a href="/meet">Meet</a></li>
+                    <li><a href="/learn">Learn</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/settings">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="settings-section">
+            <h2>Settings</h2>
+
+            <div class="settings-card">
+                <div class="settings-card-header">
+                    <h3>Appearance</h3>
+                    <p>Choose how TDELF looks to you.</p>
+                </div>
+                <div class="settings-card-body">
+                    <div class="theme-option">
+                        <label class="switch-label" for="settingsThemeToggle">Dark Mode</label>
+                        <p class="switch-sub" id="toggleSub">Switch to dark theme</p>
+                        <label class="theme-switch">
+                            <input type="checkbox" id="settingsThemeToggle">
+                            <span class="switch-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <div class="settings-card-header">
+                    <h3>About Settings</h3>
+                    <p>Your theme preference is saved locally on this browser.</p>
+                </div>
+            </div>
+</section>
+       </main>
+  </body>
+</html>

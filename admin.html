@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Support Tickets - TDELF</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="icon.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="icon.png">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo"><img src="tdelf.png" alt="TDELF Logo"></div>
+            <nav>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/support">Support</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/e-tdelf">e-TDELF</a></li>
+                    <li><a href="/meet">Meet</a></li>
+                    <li><a href="/learn">Learn</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/settings">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Admin Panel - Support Tickets</h1>
+            <p>Manage customer support tickets and inquiries</p>
+        </section>
+
+        <section id="adminSection" style="display: none;">
+            <div class="admin-header">
+                <div>
+                    <h2>Support Tickets</h2>
+                </div>
+                <button id="refreshBtn" class="submit-btn" style="width: 150px;">Refresh</button>
+            </div>
+
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <div class="stat-label">Total Tickets</div>
+                    <div class="stat-number" id="totalTickets">0</div>
+                </div>
+                <div class="stat-card warning">
+                    <div class="stat-label">Open Tickets</div>
+                    <div class="stat-number" id="openTickets">0</div>
+                </div>
+                <div class="stat-card success">
+                    <div class="stat-label">Closed Tickets</div>
+                    <div class="stat-number" id="closedTickets">0</div>
+                </div>
+            </div>
+
+            <div id="ticketsContainer"></div>
+        </section>
+
+        <section id="loginSection">
+            <div style="max-width: 400px; margin: 50px auto; text-align: center;">
+                <h2 style="margin-bottom: 30px;">Admin Login</h2>
+                <p style="color: #7f8c8d; margin-bottom: 20px;">Enter the admin password to access the ticket management system</p>
+                <input type="password" id="adminPassword" placeholder="Enter admin password" style="width: 100%; padding: 12px; border: 2px solid #ecf0f1; border-radius: 6px; margin-bottom: 15px;">
+                <button id="loginBtn" class="submit-btn">Login</button>
+                <p style="color: #e74c3c; margin-top: 15px; display: none;" id="loginError">Incorrect password</p>
+            </div>
+        </section>
+
+        <!-- Ticket Detail Modal -->
+        <div id="ticketModal" class="ticket-detail-modal">
+            <div class="ticket-detail-content">
+                <button class="close-btn" onclick="closeTicketModal()">×</button>
+                <div class="ticket-detail-header">
+                    <div class="ticket-detail-id" id="modalTicketId"></div>
+                </div>
+                
+                <div class="ticket-detail-field">
+                    <strong>Name</strong>
+                    <span id="modalTicketName"></span>
+                </div>
+                
+                <div class="ticket-detail-field">
+                    <strong>Email</strong>
+                    <span id="modalTicketEmail"></span>
+                </div>
+                
+                <div class="ticket-detail-field">
+                    <strong>Phone</strong>
+                    <span id="modalTicketPhone"></span>
+                </div>
+                
+                <div class="ticket-detail-field">
+                    <strong>Message</strong>
+                    <span id="modalTicketMessage" style="display: block; white-space: pre-wrap;"></span>
+                </div>
+                
+                <div class="ticket-detail-field">
+                    <strong>Created</strong>
+                    <span id="modalTicketCreated"></span>
+                </div>
+                
+                <div class="status-update">
+                    <label><strong>Update Status</strong></label>
+                    <select id="modalStatusSelect" onchange="updateTicketStatus()">
+                        <option value="open">Open</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="closed">Closed</option>
+                    </select>
+                    <button class="submit-btn" onclick="updateTicketStatus()">Update Status</button>
+                    <button class="submit-btn" style="background: #e74c3c; margin-top: 10px;" onclick="deleteCurrentTicket()">Delete Ticket</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="support-system.js"></script>
+        <script src="admin.js"></script>
+    </main>
+</body>
+</html>
