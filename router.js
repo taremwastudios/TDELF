@@ -146,13 +146,19 @@ function toggleNav() {
 
 // Attach click listeners to nav links and the hamburger toggle
 function attachLinkListeners() {
-    document.querySelectorAll('.mobile-nav a, nav a').forEach(link => {
+    document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(link => {
         link.addEventListener('click', handleLinkClick);
     });
 
     const toggle = document.getElementById('navToggle');
-    if (toggle) {
-        toggle.addEventListener('click', toggleNav);
+    if (toggle && !toggle._bound) {
+        toggle.addEventListener('click', function () {
+            const nav = document.getElementById('mobileNav');
+            if (!nav) return;
+            nav.classList.toggle('open');
+            this.classList.toggle('active');
+        });
+        toggle._bound = true;
     }
 }
 

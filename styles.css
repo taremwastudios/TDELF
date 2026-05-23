@@ -590,37 +590,42 @@ section h2::after {
     }
 }
 
-  @media (max-width: 600px) {
-      .header-container {
-          flex-direction: row;
-          height: 70px;
-          padding: 0 14px;
-          gap: 0;
-      }
+   @media (max-width: 600px) {
+       .header-container {
+           flex-direction: row;
+           height: 70px;
+           padding: 0 14px;
+           gap: 0;
+       }
 
-      .logo img {
-          height: 38px;
-      }
+       .logo img {
+           height: 38px;
+       }
 
-      .nav-toggle {
-          display: flex;
-      }
+       .nav-toggle {
+           display: flex;
+       }
 
-      nav {
-          display: none;
-      }
-  }
+       nav {
+           display: none;
+       }
+   }
 
-  /* Desktop: show inline nav, hide hamburger */
-  @media (min-width: 601px) {
-      .mobile-nav {
-          display: none !important;
-      }
+   /* Desktop: show inline nav, hide hamburger + mobile dropdown */
+   @media (min-width: 601px) {
+       .mobile-nav {
+           display: none !important;
+       }
 
-      .nav-toggle {
-          display: none !important;
-      }
-  }
+       .nav-toggle {
+           display: none !important;
+       }
+
+       nav {
+           display: flex;
+       }
+   }
+
    
      .hero {
          padding: 40px 20px;
