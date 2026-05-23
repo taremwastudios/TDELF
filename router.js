@@ -76,9 +76,17 @@ function loadPage(file, path) {
                 const currentHeader = document.querySelector('header');
                 if (currentHeader) {
                     currentHeader.innerHTML = header.innerHTML;
-                    // Re-attach event listeners to new links
+                    // Re-attach event listeners to new links and hamburger toggle
                     attachLinkListeners();
                 }
+            }
+
+            // Close mobile nav on page change
+            const openNav = document.getElementById('mobileNav');
+            const toggleBtn = document.getElementById('navToggle');
+            if (openNav && openNav.classList.contains('open')) {
+                openNav.classList.remove('open');
+                if (toggleBtn) toggleBtn.classList.remove('active');
             }
 
             // Run post-page-load hooks (e.g. settings/theme init)
@@ -127,11 +135,25 @@ function handleLinkClick(e) {
     }
 }
 
-// Attach click listeners to links
+// Toggle mobile nav dropdown
+function toggleNav() {
+    const nav = document.getElementById('mobileNav');
+    const btn = document.getElementById('navToggle');
+    if (!nav || !btn) return;
+    nav.classList.toggle('open');
+    btn.classList.toggle('active');
+}
+
+// Attach click listeners to nav links and the hamburger toggle
 function attachLinkListeners() {
-    document.querySelectorAll('a').forEach(link => {
+    document.querySelectorAll('.mobile-nav a, nav a').forEach(link => {
         link.addEventListener('click', handleLinkClick);
     });
+
+    const toggle = document.getElementById('navToggle');
+    if (toggle) {
+        toggle.addEventListener('click', toggleNav);
+    }
 }
 
 // Start router when DOM is ready

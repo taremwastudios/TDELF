@@ -140,6 +140,7 @@ nav a {
     font-size: 14px;
     transition: color 0.3s ease;
     padding: 8px 0;
+    position: relative;
 }
 
 nav a::after {
@@ -167,6 +168,84 @@ main {
     padding: 60px 20px;
     position: relative;
     z-index: 1;
+}
+
+/* ── Hamburger Toggle ── */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1100;
+    flex-shrink: 0;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 26px;
+    height: 2.5px;
+    background: var(--text-header);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+/* ── Mobile Nav Dropdown ── */
+.mobile-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-header);
+    border-bottom: 1px solid var(--border-header);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    z-index: 1050;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    padding: 0 20px;
+}
+
+.mobile-nav.open {
+    display: block;
+    max-height: 420px;
+    padding: 12px 20px 16px;
+}
+
+.mobile-nav ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 4px;
+}
+
+.mobile-nav li a {
+    display: block;
+    padding: 12px 8px;
+    font-size: 16px;
+    color: var(--text-header);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid var(--border-header);
+    transition: color 0.3s ease;
+}
+
+.mobile-nav li:last-child a {
+    border-bottom: none;
+}
+
+.mobile-nav li a:hover {
+    color: var(--badge-green);
 }
 
 /* Hero — just text styling, no box */
@@ -511,19 +590,37 @@ section h2::after {
     }
 }
 
-@media (max-width: 600px) {
-     .header-container {
-         flex-direction: column;
-         height: auto;
-         padding: 15px 20px;
-         gap: 15px;
-     }
-   
-     nav ul {
-         gap: 15px;
-         flex-wrap: wrap;
-         justify-content: center;
-     }
+  @media (max-width: 600px) {
+      .header-container {
+          flex-direction: row;
+          height: 70px;
+          padding: 0 14px;
+          gap: 0;
+      }
+
+      .logo img {
+          height: 38px;
+      }
+
+      .nav-toggle {
+          display: flex;
+      }
+
+      nav {
+          display: none;
+      }
+  }
+
+  /* Desktop: show inline nav, hide hamburger */
+  @media (min-width: 601px) {
+      .mobile-nav {
+          display: none !important;
+      }
+
+      .nav-toggle {
+          display: none !important;
+      }
+  }
    
      .hero {
          padding: 40px 20px;
