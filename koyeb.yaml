@@ -1,7 +1,0 @@
-name: tdelft-website
-services:
-  - name: web
-    build:
-      context: .
-    routes:
-      - path: /
